@@ -13,6 +13,11 @@
   --accent-cyan: #79c0ff;  /* stödaccent, blå */
   --accent-soft: rgba(126, 231, 135, 0.12);
 
+  /* 🆕 NYTT — lila accent + gradient som blandar lila/blå/grön */
+  --accent-purple: #a78bfa;
+  --accent-gradient: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan), var(--accent));
+  /* 🆕 SLUT */
+
   /* Typografi */
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, "SFMono-Regular", Consolas, monospace;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -146,6 +151,13 @@ button:focus-visible {
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
+
+  /* 🆕 NYTT — gör namnet i gradient-färg istället för vanlig textfärg */
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* 🆕 SLUT */
 }
 
 .hero-role {
