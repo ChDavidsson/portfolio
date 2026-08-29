@@ -282,6 +282,13 @@ button:focus-visible {
   gap: 0.75rem;
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
+
+  /* 🆕 NYTT — gradient på rubriktexten */
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* 🆕 SLUT */
 }
 
 .section-index {
@@ -314,7 +321,11 @@ button:focus-visible {
 
 .about-card:hover {
   transform: translateY(-3px);
-  border-color: var(--accent);
+
+  /* 🆕 NYTT — gradient-kant istället för enfärgad */
+  border-color: transparent;
+  border-image: var(--accent-gradient) 1;
+  /* 🆕 SLUT */
 }
 
 .about-card-title {
@@ -350,16 +361,26 @@ button:focus-visible {
 
 .skill-card:hover {
   transform: translateY(-3px);
-  border-color: var(--accent);
+
+  /* 🆕 NYTT — gradient-kant istället för enfärgad */
+  border-color: transparent;
+  border-image: var(--accent-gradient) 1;
+  /* 🆕 SLUT */
 }
 
 .skill-icon {
   display: block;
   font-family: var(--font-mono);
   font-weight: 700;
-  color: var(--accent);
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
+
+  /* 🆕 NYTT — gradient istället för vanlig accentfärg */
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* 🆕 SLUT */
 }
 
 .skill-name {
