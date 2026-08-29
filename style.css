@@ -129,10 +129,24 @@ button:focus-visible {
    HERO
    ============================================ */
 .hero {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 5rem 1.5rem 4rem;
+
+  /* 🆕 NYTT — två kolumner sida vid sida, staplas på mobil */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+  background: linear-gradient(160deg, rgba(167, 139, 250, 0.08), rgba(121, 192, 255, 0.05), transparent);
+  /* 🆕 SLUT */
 }
+
+/* 🆕 NYTT — vänster kolumn (text) tar mer plats än höger (kod-ruta) */
+.hero-text {
+  flex: 1 1 400px;
+}
+/* 🆕 SLUT */
 
 .prompt-line {
   font-family: var(--font-mono);
@@ -172,6 +186,85 @@ button:focus-visible {
   font-size: 1.05rem;
   max-width: 60ch;
 }
+/* 🆕 NYTT — knapparna under texten */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #0d1117;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+}
+/* 🆕 SLUT */
+/* 🆕 NYTT — kod-rutan till höger */
+.hero-code {
+  flex: 1 1 320px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.code-window-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  background-color: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-red { background-color: #ff5f56; }
+.dot-yellow { background-color: #ffbd2e; }
+.dot-green { background-color: #27c93f; }
+
+.code-window-title {
+  margin-left: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.code-window-body {
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--accent-cyan);
+  line-height: 1.8;
+  overflow-x: auto;
+}
+/* 🆕 SLUT */
 
 /* ============================================
    SEKTIONER (generellt)
