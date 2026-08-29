@@ -35,27 +35,30 @@ themeToggleButton.addEventListener("click", function () {
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".topbar-tabs .tab");
 
-const observer = new IntersectionObserver(
-  function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        const currentId = entry.target.getAttribute("id");
+function updateActiveTab() {
+  const scrollPosition = window.scrollY + 150; // 150px marginal från toppen
+  const pageBottom = document.body.scrollHeight - window.innerHeight - 50;
 
-        navLinks.forEach(function (link) {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === "#" + currentId) {
-            link.classList.add("active");
-          }
-        });
+  let currentSectionId = sections[0].getAttribute("id");
+
+  // Om man scrollat till botten av sidan, välj alltid sista sektionen
+  if (window.scrollY >= pageBottom) {
+    currentSectionId = sections[sections.length - 1].getAttribute("id");
+  } else {
+    sections.forEach(function (section) {
+      if (section.offsetTop <= scrollPosition) {
+        currentSectionId = section.getAttribute("id");
       }
     });
-  },
-  {
-    // Sektionen räknas som "aktiv" när den är i mitten av skärmen
-    rootMargin: "-10% 0px -10% 0px"
   }
-);
 
-sections.forEach(function (section) {
-  observer.observe(section);
-});
+  navLinks.forEach(function (link) {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + currentSectionId) {
+      link.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", updateActiveTab);
+updateActiveTab(); // kör direkt vid sidladdning också
