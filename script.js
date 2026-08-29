@@ -26,3 +26,36 @@ themeToggleButton.addEventListener("click", function () {
     localStorage.setItem("theme", "dark");
   }
 });
+
+
+// ============================================
+// Navigeringsmeny — markera rätt flik vid scroll
+// ============================================
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".topbar-tabs .tab");
+
+const observer = new IntersectionObserver(
+  function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        const currentId = entry.target.getAttribute("id");
+
+        navLinks.forEach(function (link) {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + currentId) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+  },
+  {
+    // Sektionen räknas som "aktiv" när den är i mitten av skärmen
+    rootMargin: "-40% 0px -40% 0px"
+  }
+);
+
+sections.forEach(function (section) {
+  observer.observe(section);
+});

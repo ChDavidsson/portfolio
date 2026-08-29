@@ -103,10 +103,10 @@ button:focus-visible {
 }
 
 .tab.active {
-  color: var(--accent);
-  background-color: var(--bg-card);
-  border-color: var(--border-color);
-  border-bottom-color: var(--bg-card);
+  background: var(--accent-gradient);
+  color: #0d1117;
+  border-color: transparent;
+  font-weight: 600;
 }
 
 /* 🆕 NYTT — switch-utseende istället för vanlig knapp */
