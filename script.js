@@ -52,7 +52,7 @@ const observer = new IntersectionObserver(
   },
   {
     // Sektionen räknas som "aktiv" när den är i mitten av skärmen
-    rootMargin: "-20% 0px -20% 0px"
+    rootMargin: "-10% 0px -10% 0px"
   }
 );
 
