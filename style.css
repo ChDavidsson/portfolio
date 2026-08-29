@@ -397,8 +397,11 @@ button:focus-visible {
   gap: 1.25rem;
 }
 
-/* 🆕 NYTT — hover-effekt på projektkorten, som på de andra korten */
 .project-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
   transition: transform 0.15s ease, border-color 0.15s ease;
 }
 
@@ -407,7 +410,6 @@ button:focus-visible {
   border-color: transparent;
   border-image: var(--accent-gradient) 1;
 }
-/* 🆕 SLUT */
 
 .project-file {
   font-family: var(--font-mono);
