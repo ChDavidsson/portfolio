@@ -36,20 +36,20 @@ const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".topbar-tabs .tab");
 
 function updateActiveTab() {
-  const scrollPosition = window.scrollY + 150; // 150px marginal från toppen
+  const scrollPosition = window.scrollY + 150;
+  const pageBottom = document.body.scrollHeight - window.innerHeight - 50;
 
   let currentSectionId = sections[0].getAttribute("id");
 
-  sections.forEach(function (section, index) {
-    const sectionStart = section.offsetTop;
-    const nextSection = sections[index + 1];
-    // Om det finns en nästa sektion, sluta där den börjar. Annars (sista sektionen), sluta i oändligheten.
-    const sectionEnd = nextSection ? nextSection.offsetTop : Infinity;
-
-    if (scrollPosition >= sectionStart && scrollPosition < sectionEnd) {
-      currentSectionId = section.getAttribute("id");
-    }
-  });
+  if (window.scrollY >= pageBottom) {
+    currentSectionId = sections[sections.length - 1].getAttribute("id");
+  } else {
+    sections.forEach(function (section) {
+      if (section.offsetTop <= scrollPosition) {
+        currentSectionId = section.getAttribute("id");
+      }
+    });
+  }
 
   navLinks.forEach(function (link) {
     link.classList.remove("active");
